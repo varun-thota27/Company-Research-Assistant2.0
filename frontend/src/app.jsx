@@ -34,7 +34,7 @@ function Header({ dark, setDark }) {
             </svg>
           </div>
           <div>
-            <div className="text-xl font-semibold tracking-tight">COMPANY RESEARCH AGENT</div>
+            <div className="text-xl font-semibold tracking-tight">COMPANY RESEARCH ASSISTANT</div>
             <div className="text-xs opacity-90">Research • Plan • Export • Ask</div>
           </div>
         </div>
@@ -56,7 +56,7 @@ function Footer() {
   return (
     <footer className="w-full border-t border-gray-200 dark:border-slate-700 mt-8">
       <div className="max-w-6xl mx-auto px-6 py-4 text-sm text-gray-600 dark:text-gray-300 flex justify-between">
-        <div>© {new Date().getFullYear()} Company Research Agent</div>
+        <div>© {new Date().getFullYear()} Company Research Assistant</div>
         <div>Made by Varun</div>
       </div>
     </footer>

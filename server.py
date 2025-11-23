@@ -55,12 +55,36 @@ async def api_research(payload: Dict[str, Any]):
         query = payload.get("query") if isinstance(payload, dict) else None
         if not query:
             return JSONResponse(status_code=400, content={"error": "missing_query"})
+
+        # --- Lightweight input validation (non-invasive) ---
+        # Remove a leading 'research' keyword so users who type "Research X" still pass.
+        cleaned = str(query).strip()
+        if cleaned.lower().startswith("research"):
+            candidate = cleaned[len("research"):].strip()
+        else:
+            candidate = cleaned
+
+        # Count alphabetic characters in the candidate (basic heuristic).
+        # If there are too few letters, treat it as invalid input (e.g., "1234!!!!").
+        import re
+        letters_count = len(re.findall(r"[A-Za-z]", candidate))
+        if letters_count < 3:
+            return JSONResponse(
+                status_code=400,
+                content={
+                    "error": "invalid_input",
+                    "detail": "Invalid input — please enter a valid company name or research query (e.g., 'Research Tesla' or 'Research EightFold AI')."
+                }
+            )
+        # -------------------------------------------------------
+
         research_text, sources = research_agent.search_company(query)
         plan = research_agent.generate_account_plan(research_text, sources, query)
         return JSONResponse(status_code=200, content={"plan": plan})
     except Exception as e:
         logger.exception("api_research failed: %s", e)
         return JSONResponse(status_code=500, content={"error": "api_research_failed", "detail": str(e)})
+
 
 
 @app.post("/api/edit")
