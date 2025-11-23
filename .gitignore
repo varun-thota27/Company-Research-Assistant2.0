@@ -1,0 +1,79 @@
+# --------------------------------
+# Python
+# --------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.sqlite3
+*.log
+.env
+.venv
+venv/
+ENV/
+env/
+
+# FastAPI
+*.db
+*.sqlite
+instance/
+*.pid
+
+# ReportLab temp files
+*.pdf
+
+# --------------------------------
+# Node / React / Vite
+# --------------------------------
+# dependencies
+node_modules/
+
+# production
+dist/
+build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment
+.env.local
+.env.production
+.env.development
+
+# Vite
+.cache/
+.vite/
+
+# --------------------------------
+# OS / IDE / Editor
+# --------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+*~
+.cache/
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# --------------------------------
+# Python virtual env inside frontend accidentally
+# --------------------------------
+frontend/venv/
+frontend/__pycache__/

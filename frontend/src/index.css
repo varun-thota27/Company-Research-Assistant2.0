@@ -1,0 +1,38 @@
+/* frontend/src/index.css - Tailwind + custom tweaks */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom smooth transition and typographic tweaks */
+:root {
+  --brand: #0ea5e9;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* gentle card shadow in light/dark */
+.card-shadow {
+  transition: box-shadow .18s ease, transform .15s ease;
+}
+.card-shadow:hover {
+  transform: translateY(-4px);
+}
+
+/* nicer link color */
+a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+
+/* small helper for pre-wrapped paragraphs */
+.pre-wrap { white-space: pre-wrap; }
+
+/* reduce contrast in dark mode for backgrounds */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1724;
+  }
+}
+
+/* smooth scrollbar for QA panel */
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(100,100,100,0.2); border-radius: 10px; }

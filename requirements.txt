@@ -1,0 +1,12 @@
+langchain
+langchain-community
+tavily-python
+python-dotenv
+google-genai
+sounddevice
+soundfile
+pyttsx3
+fastapi
+uvicorn[standard]
+python-multipart
+reportlab
